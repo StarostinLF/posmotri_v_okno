@@ -85,11 +85,11 @@ ol {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 700;
-  padding: 6px 0;
-  cursor: pointer;
+  padding: 6px 0;  
   color: #fff;
   background: none;
   border: 1px solid #fff;
+  cursor: pointer;
 }
 
 .button:focus {
