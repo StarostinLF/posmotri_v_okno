@@ -9,6 +9,8 @@ html {
 }
 
 .page {
+  display: flex;
+  align-items: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -114,8 +116,6 @@ ol {
 }
 
 .content {
-  width: 1140px;
-  height: 534px;
   margin: 0 auto;
   display: flex;
   align-items: end;
@@ -203,9 +203,9 @@ ol {
   height: 103px;
   margin-left: auto;
   -o-object-position: 50% 50%;
-     object-position: 50% 50%;
+  object-position: 50% 50%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .result {
@@ -216,7 +216,7 @@ ol {
   width: inherit;
   height: inherit;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .result__video-container {
