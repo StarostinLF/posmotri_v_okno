@@ -9,6 +9,8 @@ html {
 }
 
 .page {
+  display: flex;
+  align-items: center;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -114,8 +116,6 @@ ol {
 }
 
 .content {
-  width: 1140px;
-  height: 534px;
   margin: 0 auto;
   display: flex;
   align-items: end;
@@ -133,7 +133,6 @@ ol {
 }
 
 .content__details {
-  flex: 0 0 auto;
   width: 399px;
   display: flex;
   flex-direction: column;
@@ -203,39 +202,39 @@ ol {
   height: 103px;
   margin-left: auto;
   -o-object-position: 50% 50%;
-     object-position: 50% 50%;
+  object-position: 50% 50%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .result {
-  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .result__video {
   width: inherit;
   height: inherit;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .result__video-container {
   position: relative;
   width: 711px;
   height: 386px;
-  margin: 55px 0 16px 0;
 }
 
 .search-form {
   display: flex;
-  gap: 40px;
+  gap: 42px;
 }
 
 .search-form__fieldset {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  align-items: start;
+  gap: 6px;
   width: -moz-fit-content;
   width: -webkit-fit-content;
   width: fit-content;
@@ -268,7 +267,7 @@ ol {
   font-size: 18px;
   font-weight: 200;
   text-align: start;
-  width: 225px;
+  width: 224px;
   color: #fff;
   background: none;
   outline: none;
@@ -286,22 +285,20 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
-  position: relative;
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #fff;
 }
 
-.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
-  position: absolute;
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   content: "";
   display: block;
   width: 15px;
   height: 15px;
   background-color: white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .search-form__submit-button {
