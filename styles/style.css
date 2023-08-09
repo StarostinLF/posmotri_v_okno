@@ -74,7 +74,7 @@ ol {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Button */
+/* Buttons */
 
 .button {
   font-family: "Fira Sans Condensed", sans-serif;
@@ -108,7 +108,7 @@ ol {
   width: 100%;
 }
 
-/* Template */
+/* Templates */
 
 .cards-list-item-template {
   display: flex;
