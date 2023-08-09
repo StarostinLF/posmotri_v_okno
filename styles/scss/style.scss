@@ -1,0 +1,353 @@
+$whiteColor: #fff;
+$lightColor: rgba(255, 255, 255, 0.7);
+$oswaldColor: #545050;
+
+$firaSansCondensedFont: "Fira Sans Condensed", sans-serif;
+$oswaldFont: Oswald, sans-serif;
+
+@mixin firaSansCondensedFont($fs, $fw) {
+  font-family: $firaSansCondensedFont;
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+@mixin oswaldFont($fs, $fw) {
+  font-family: $oswaldFont;
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+@mixin fontSettings($fs, $fw) {
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+@mixin displaySettings($df, $fd, $g) {
+  display: $df;
+  flex-direction: $fd;
+  gap: $g;
+}
+
+@mixin outlineSettings($ol, $olof) {
+  outline: $ol;
+  outline-offset: $olof;
+}
+
+/* Global layout */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  block-size: 100%;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  inline-size: 1200px;
+  block-size: 100%;
+  margin: auto;
+  color: #fff;
+  font-family: "Fira Sans Condensed", sans-serif;
+  font-size: 18px;
+  background-color: #1b1919;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+blockquote,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* H1 title */
+
+.title {
+  @include oswaldFont(75px, 700);
+  text-transform: uppercase;
+  line-height: 94%;
+}
+
+/* Hiding an element */
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Placeholder */
+
+::-webkit-input-placeholder {
+  color: $lightColor;
+}
+
+::-moz-placeholder {
+  color: $lightColor;
+}
+
+:-ms-input-placeholder {
+  color: $lightColor;
+}
+
+::-ms-input-placeholder {
+  color: $lightColor;
+}
+
+::placeholder {
+  color: $lightColor;
+}
+
+/* Button */
+
+.button {
+  @include firaSansCondensedFont(18px, 700);
+  padding: 6px 0;
+  color: $whiteColor;
+  background: none;
+  border: 1px solid currentColor;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid $whiteColor;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    background: $oswaldColor;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.more-button {
+  width: 100%;
+}
+
+/* Template */
+
+.cards-list-item-template {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Result container */
+
+.result {
+  @include displaySettings(flex, column, 16px);
+
+  &__video {
+    width: inherit;
+    height: inherit;
+    -o-object-fit: cover;
+    object-fit: cover;
+
+    &-container {
+      position: relative;
+      width: 711px;
+      height: 386px;
+    }
+  }
+}
+
+/* Search form */
+
+.search {
+  &-form {
+    display: flex;
+    gap: 42px;
+
+    &__fieldset {
+      @include displaySettings(flex, column, 6px);
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      border: none;
+
+      &-title {
+        @include fontSettings(18px, 400);
+      }
+    }
+
+    &__label {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      cursor: pointer;
+
+      &:has(:focus-visible) {
+        @include outlineSettings(1px solid $whiteColor, 2px);
+      }
+
+      &:hover {
+        .search-form__label-text {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__textfield {
+      @include firaSansCondensedFont(18px, 400);
+      text-align: start;
+      width: 224px;
+      color: $whiteColor;
+      background: none;
+      outline: none;
+      border: none;
+      border-top: 1px solid $whiteColor;
+      border-bottom: 1px solid $whiteColor;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    &__checkbox {
+      &-list {
+        display: flex;
+        gap: 15px;
+      }
+    }
+
+    &__pseudo-checkbox {
+      width: 19px;
+      height: 19px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $whiteColor;
+    }
+
+    &__checkbox:checked + &__pseudo-checkbox {
+      &::after {
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        background-color: white;
+      }
+    }
+
+    &__submit-button {
+      align-self: flex-end;
+      width: 190px;
+    }
+  }
+}
+
+/* Card list */
+
+.content {
+  margin: 0 auto;
+  display: flex;
+  align-items: end;
+  gap: 30px;
+
+  &__list {
+    position: relative;
+    height: 300px;
+    overflow-y: auto;
+    @include displaySettings(flex, column, 30px);
+    align-self: baseline;
+
+    &-item {
+    }
+  }
+
+  &__details {
+    width: 399px;
+    @include displaySettings(flex, column, 21px);
+    justify-content: start;
+  }
+
+  &__accent {
+    color: $oswaldColor;
+  }
+
+  &__card-link {
+    margin: 2px;
+    display: block;
+    text-decoration: none;
+    color: $whiteColor;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $whiteColor;
+    }
+
+    &:active {
+      background: $oswaldColor;
+    }
+
+    &:hover {
+      .content__video-card-title,
+      .content__video-card-description {
+        text-decoration: underline;
+      }
+    }
+
+    &_current {
+      background: $oswaldColor;
+    }
+  }
+
+  &__video-card {
+    display: flex;
+
+    &-description-container {
+      padding: 4px 0;
+      max-width: 200px;
+      @include displaySettings(flex, column, 4px);
+    }
+
+    &-title {
+      @include oswaldFont(30px, 700);
+      line-height: 100%;
+      text-transform: uppercase;
+    }
+
+    &-description {
+      font-weight: 400;
+      line-height: 90%;
+    }
+
+    &-thumbnail {
+      width: 194px;
+      height: 103px;
+      margin-left: auto;
+      -o-object-position: 50% 50%;
+      object-position: 50% 50%;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+  }
+}
