@@ -37,15 +37,11 @@ ol {
   list-style: none;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 .title {
   font-family: Oswald, sans-serif;
   font-size: 75px;
   font-weight: 700;
-  margin: 0px 0 18px 0;
+  margin-top: -20px;
   text-transform: uppercase;
   line-height: 94%;
 }
@@ -128,11 +124,12 @@ ol {
 
 .content__list {
   position: relative;
-  height: 322px;
+  height: 300px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 30px;
+  align-self: baseline;
 }
 
 .content__details {
@@ -140,11 +137,11 @@ ol {
   width: 399px;
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .content__accent {
   color: #545050;
-  vertical-align: middle;
 }
 
 .content__card-link {
@@ -181,16 +178,19 @@ ol {
 
 .content__video-card-description-container {
   flex: 1 0 auto;
+  padding: 4px 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   width: 200px;
 }
 
 .content__video-card-title {
   font-family: Oswald, sans-serif;
+  width: 200px;
   font-size: 30px;
   font-weight: 700;
+  line-height: 100%;
   text-transform: uppercase;
 }
 
